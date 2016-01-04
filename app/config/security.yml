@@ -1,0 +1,49 @@
+# app/config/security.yml
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_ELEVE:       ROLE_ELEVE
+        ROLE_PROFESSEUR:  ROLE_PROFESSEUR
+        ROLE_SURVEILLANT: ROLE_SURVEILLANT
+        ROLE_ADMIN:       ROLE_ADMIN
+        ROLE_SUPER_ADMIN: [ROLE_SUPER_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                #csrf_token_generator: security.csrf.token_manager
+                # if you are using Symfony < 2.8, use the following config instead:
+                csrf_provider: form.csrf_provider
+                login_path: /login
+                check_path: /login_check
+                #success_handler: redirect.after.login
+
+            logout:    true
+                #success_handler: redirect.after.logout
+            anonymous:    true
+            remember_me:
+                key:      %secret%
+                lifetime: 604800 # 1 week in seconds
+                path:     /
+                domain:   ~ # Defaults to the current domain secure:   true
+                httponly: true
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/eleve/, role: [ROLE_ELEVE,ROLE_ADMIN,ROLE_SUPER_ADMIN] }
+        - { path: ^/professeur/, role: [ROLE_PROFESSEUR,ROLE_ADMIN,ROLE_SUPER_ADMIN] }
+        - { path: ^/surveillant/, role: [ROLE_SURVEILLANT,ROLE_ADMIN,ROLE_SUPER_ADMIN]}
+        - { path: ^/principal/, role: [ROLE_ADMIN,ROLE_SUPER_ADMIN]}

@@ -1,0 +1,4 @@
+parameters:
+#    pgx_gestion.example.class: PGX\GestionBundle\Example
+
+services:

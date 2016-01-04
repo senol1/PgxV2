@@ -1,0 +1,21 @@
+pgx_gestion_homepage:
+    path:     /
+    defaults: { _controller: PGXGestionBundle:Default:index }
+pgx_principal_index:
+    path:     /principal/index
+    defaults: { _controller: PGXGestionBundle:Principal:index }
+pgx_surveillant_index:
+    path:     /surveillant/index
+    defaults: { _controller: PGXGestionBundle:Surveillant:index }
+
+pgx_professeur_index:
+    path:     /professeur/index
+    defaults: { _controller: PGXGestionBundle:Professeur:index }
+
+pgx_eleve_index:
+    path:     /eleve/index
+    defaults: { _controller: PGXGestionBundle:Eleve:index }
+
+pgx_boxe_info:
+    path: /boxe_info
+    defaults: { _controller: PGXGestionBundle:Default:boxeInfo}

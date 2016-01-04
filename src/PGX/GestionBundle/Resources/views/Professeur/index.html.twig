@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Proffesseur{% endblock %}
+{% block title_page %}<i class="fa fa-dashboard"></i> Tableau de bord{% endblock %}
+{% block subTitle_page %}{% endblock %}
+{% block history_page %}Acceuil{% endblock %}
+{% block current_page %}tableau de bord{% endblock %}
+{% block body %}
+    {{ render(controller('PGXGestionBundle:Default:boxeInfo')) }}
+    <h3>suite !</h3>
+{% endblock %}
