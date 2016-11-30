@@ -10,16 +10,16 @@
             <link rel="stylesheet" href="{{ asset('avanzu/dist/css/AdminLTE.min.css') }}">
             <link rel="stylesheet" href="{{ asset('avanzu/plugins/iCheck/square/blue.css') }}">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-            <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-            <![endif]-->
+
+            <style>
+                body{
+                    background-image: url("{{ asset('background/images/3.jpg') }}");
+                }
+            </style>
 
         {% endblock %}
     </head>
-    <body class="login-page">
+    <body class="login-page" id="page" style="background-image: url('{{ asset('background/images/3.jpg') }}')">
         {#<div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
@@ -30,7 +30,7 @@
                 <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
             {% endif %}
         </div>#}
-
+    <div class="container">
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
                 {% for message in messages %}
@@ -45,6 +45,7 @@
             {% block fos_user_content %}
             {% endblock fos_user_content %}
         </div>
+    </div>
 
         {% block javascripts %}
             <!-- Javascript -->

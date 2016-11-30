@@ -1,3 +1,19 @@
+pgx_gestion_etablissement:
+    resource: "@PGXGestionBundle/Resources/config/routing/etablissement.yml"
+    prefix:   /etablissement
+
+pgx_gestion_logo:
+    path:     /logo
+    defaults: { _controller: PGXGestionBundle:Default:logo }
+
+pgx_gestion_profil:
+    path:     /profil
+    defaults: { _controller: PGXGestionBundle:Default:profil }
+
+pgx_image_upload_submit:
+    path:     /profil/image
+    defaults: { _controller: PGXGestionBundle:Default:uploadimage }
+
 pgx_gestion_homepage:
     path:     /
     defaults: { _controller: PGXGestionBundle:Default:index }
@@ -19,3 +35,11 @@ pgx_eleve_index:
 pgx_boxe_info:
     path: /boxe_info
     defaults: { _controller: PGXGestionBundle:Default:boxeInfo}
+
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+    prefix: /group

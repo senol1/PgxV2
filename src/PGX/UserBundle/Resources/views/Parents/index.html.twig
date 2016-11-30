@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Parents list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Fonction</th>
+                <th>Telephonemobile</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('eleve_parents_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.fonction }}</td>
+                <td>{{ entity.telephonemobile }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('eleve_parents_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('eleve_parents_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('eleve_parents_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

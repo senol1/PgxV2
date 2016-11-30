@@ -1,0 +1,34 @@
+etablissement:
+    path:     /
+    defaults: { _controller: "PGXGestionBundle:Etablissement:index" }
+
+etablissement_info:
+    path:     /info
+    defaults: { _controller: "PGXGestionBundle:Etablissement:info" }
+
+etablissement_show:
+    path:     /{id}/show
+    defaults: { _controller: "PGXGestionBundle:Etablissement:show" }
+
+etablissement_new:
+    path:     /new
+    defaults: { _controller: "PGXGestionBundle:Etablissement:new" }
+
+etablissement_create:
+    path:     /create
+    defaults: { _controller: "PGXGestionBundle:Etablissement:create" }
+    methods:  POST
+
+etablissement_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PGXGestionBundle:Etablissement:edit" }
+
+etablissement_update:
+    path:     /{id}/update
+    defaults: { _controller: "PGXGestionBundle:Etablissement:update" }
+    methods:  [POST, PUT]
+
+etablissement_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PGXGestionBundle:Etablissement:delete" }
+    methods:  [POST, DELETE]

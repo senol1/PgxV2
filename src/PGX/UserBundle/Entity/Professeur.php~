@@ -1,0 +1,35 @@
+<?php
+
+namespace PGX\UserBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="professeur")
+ * @UniqueEntity(fields = "username", targetClass = "PGX\UserBundle\Entity\User", message="fos_user.username.already_used")
+ * @UniqueEntity(fields = "email", targetClass = "PGX\UserBundle\Entity\User", message="fos_user.email.already_used")
+ */
+class Professeur extends User
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     */
+    protected $echelle;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     */
+    protected $echelon;
+}

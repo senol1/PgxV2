@@ -1,0 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Etablissement list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Noautorisation</th>
+                <th>Capacite</th>
+                <th>Adresse</th>
+                <th>Adressecomplementaire</th>
+                <th>Telephonemobile</th>
+                <th>Telephonefixe</th>
+                <th>Fax</th>
+                <th>Autretelephone</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('etablissement_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.noautorisation }}</td>
+                <td>{{ entity.capacite }}</td>
+                <td>{{ entity.adresse }}</td>
+                <td>{{ entity.adressecomplementaire }}</td>
+                <td>{{ entity.telephonemobile }}</td>
+                <td>{{ entity.telephonefixe }}</td>
+                <td>{{ entity.fax }}</td>
+                <td>{{ entity.autretelephone }}</td>
+                <td>{{ entity.statut }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('etablissement_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('etablissement_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('etablissement_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

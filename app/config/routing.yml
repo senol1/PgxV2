@@ -13,3 +13,21 @@ fos_user:
 fos_user_group:
     resource: "@FOSUserBundle/Resources/config/routing/group.xml"
     prefix: /group
+
+# Acme/UserBundle/Resources/config/routing.yml
+
+proviseur_registration:
+    pattern:  /register/proviseur
+    defaults: { _controller: PGXUserBundle:RegistrationProviseur:register }
+
+surveillant_registration:
+    pattern:  /register/surveillant
+    defaults: { _controller: PGXUserBundle:RegistrationSurveillant:register }
+
+professeur_registration:
+    pattern:  /register/professeur
+    defaults: { _controller: PGXUserBundle:RegistrationProfesseur:register }
+
+eleve_registration:
+    pattern:  /register/eleve
+    defaults: { _controller: PGXUserBundle:RegistrationEleve:register }

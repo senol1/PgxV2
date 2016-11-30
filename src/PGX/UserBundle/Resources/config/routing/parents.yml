@@ -1,0 +1,30 @@
+eleve_parents:
+    path:     /
+    defaults: { _controller: "PGXUserBundle:Parents:index" }
+
+eleve_parents_show:
+    path:     /{id}/show
+    defaults: { _controller: "PGXUserBundle:Parents:show" }
+
+eleve_parents_new:
+    path:     /new
+    defaults: { _controller: "PGXUserBundle:Parents:new" }
+
+eleve_parents_create:
+    path:     /create
+    defaults: { _controller: "PGXUserBundle:Parents:create" }
+    methods:  POST
+
+eleve_parents_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PGXUserBundle:Parents:edit" }
+
+eleve_parents_update:
+    path:     /{id}/update
+    defaults: { _controller: "PGXUserBundle:Parents:update" }
+    methods:  [POST, PUT]
+
+eleve_parents_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PGXUserBundle:Parents:delete" }
+    methods:  [POST, DELETE]

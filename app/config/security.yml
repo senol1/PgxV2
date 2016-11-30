@@ -42,6 +42,7 @@ security:
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/etablissement/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/eleve/, role: [ROLE_ELEVE,ROLE_ADMIN,ROLE_SUPER_ADMIN] }
         - { path: ^/professeur/, role: [ROLE_PROFESSEUR,ROLE_ADMIN,ROLE_SUPER_ADMIN] }

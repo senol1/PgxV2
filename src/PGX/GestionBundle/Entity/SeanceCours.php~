@@ -1,0 +1,134 @@
+<?php
+
+namespace PGX\GestionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SeanceCours
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class SeanceCours
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateDebut", type="date")
+     */
+    private $dateDebut;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="duree", type="time")
+     */
+    private $duree;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="typeSeance", type="string", length=255)
+     */
+    private $typeSeance;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="PGX\GestionBundle\Entity\Matiere")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $matiere;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set dateDebut
+     *
+     * @param \DateTime $dateDebut
+     *
+     * @return SeanceCours
+     */
+    public function setDateDebut($dateDebut)
+    {
+        $this->dateDebut = $dateDebut;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDebut
+     *
+     * @return \DateTime
+     */
+    public function getDateDebut()
+    {
+        return $this->dateDebut;
+    }
+
+    /**
+     * Set duree
+     *
+     * @param \DateTime $duree
+     *
+     * @return SeanceCours
+     */
+    public function setDuree($duree)
+    {
+        $this->duree = $duree;
+
+        return $this;
+    }
+
+    /**
+     * Get duree
+     *
+     * @return \DateTime
+     */
+    public function getDuree()
+    {
+        return $this->duree;
+    }
+
+    /**
+     * Set typeSeance
+     *
+     * @param string $typeSeance
+     *
+     * @return SeanceCours
+     */
+    public function setTypeSeance($typeSeance)
+    {
+        $this->typeSeance = $typeSeance;
+
+        return $this;
+    }
+
+    /**
+     * Get typeSeance
+     *
+     * @return string
+     */
+    public function getTypeSeance()
+    {
+        return $this->typeSeance;
+    }
+}
+

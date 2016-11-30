@@ -1,0 +1,68 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Etablissement</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ entity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Noautorisation</th>
+                <td>{{ entity.noautorisation }}</td>
+            </tr>
+            <tr>
+                <th>Capacite</th>
+                <td>{{ entity.capacite }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ entity.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Adressecomplementaire</th>
+                <td>{{ entity.adressecomplementaire }}</td>
+            </tr>
+            <tr>
+                <th>Telephonemobile</th>
+                <td>{{ entity.telephonemobile }}</td>
+            </tr>
+            <tr>
+                <th>Telephonefixe</th>
+                <td>{{ entity.telephonefixe }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ entity.fax }}</td>
+            </tr>
+            <tr>
+                <th>Autretelephone</th>
+                <td>{{ entity.autretelephone }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ entity.statut }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('etablissement') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('etablissement_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

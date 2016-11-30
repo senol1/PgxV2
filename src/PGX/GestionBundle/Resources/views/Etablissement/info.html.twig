@@ -1,0 +1,9 @@
+{% if etablissement is defined  %}
+    {% for e in etablissement %}
+        <b style="color:#{{ e.couleurtextenom }}">{{ e.nom }}</b>
+    {% endfor %}
+{% else %}
+    Nom de l'établissement
+{% endif %}
+
+<b style="color: orangered"></b>
